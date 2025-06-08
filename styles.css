@@ -21,8 +21,10 @@ body {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0px 0px 8px 3px rgba(40, 54, 210, 0.9);
+    text-align: center;
 
 }
+
 .sound-button.playing {
     box-shadow: 0px 0px 8px 3px rgba(43, 210, 40, 0.9);
 
