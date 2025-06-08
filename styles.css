@@ -1,0 +1,29 @@
+body {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    color: #fff;
+}
+
+.sound-button {
+    padding: 50px 75px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 3px rgba(40, 54, 210, 0.9);
+
+}
+.sound-button.playing {
+    box-shadow: 0px 0px 8px 3px rgba(43, 210, 40, 0.9);
+
+}
