@@ -1,4 +1,4 @@
-function makeAudioWithButton(sound, audioTracker, stopAll) {
+function makeAudioWithButton(sound, audioTracker, stopOther) {
     const wrapper = document.createElement('div');
     const audio = new Audio(sound.src);
     audioTracker.push(audio);
@@ -7,7 +7,7 @@ function makeAudioWithButton(sound, audioTracker, stopAll) {
     button.classList.add('sound-button');
     button.innerText = sound.label || sound.src.split('.')[0];
     button.addEventListener('click', () => {
-        stopAll && stopAll();
+        stopOther && stopOther(audio);
         audio.load();
         audio.play();
     });
@@ -22,9 +22,9 @@ function makeAudioWithButton(sound, audioTracker, stopAll) {
     
 }
 const audioElements = []; // store references to turn all off
-function stopAllAudio() {
+function stopOtherAudio(ignore) {
     audioElements.forEach((audio) => {
-        audio.pause();
+        audio !== ignore && audio.pause();
     });
 }
 const soundRefs = [
@@ -37,6 +37,6 @@ const soundRefs = [
 const layout = document.createElement('div');
 layout.classList.add('layout');
 soundRefs.forEach((sound) => {
-    layout.append(makeAudioWithButton(sound, audioElements, stopAllAudio));
+    layout.append(makeAudioWithButton(sound, audioElements, stopOtherAudio));
 });
 document.body.append(layout);
