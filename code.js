@@ -8,7 +8,7 @@ function makeAudioWithButton(sound, audioTracker, stopOther) {
     button.innerText = sound.label || sound.src.split('.')[0];
     button.addEventListener('click', () => {
         stopOther && stopOther(audio);
-        audio.load();
+        audio.currentTime = 0;
         audio.play();
     });
     audio.addEventListener('playing', () => {
